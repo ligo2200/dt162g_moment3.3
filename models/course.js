@@ -3,18 +3,21 @@ const mongoose = require('mongoose')
 
 // schema for courses
 const courseSchema = new mongoose.Schema({
-    courseCode: {
+    kurskod: {
         type: String,
-        require: true
+        required: true
     },
-    courseName: {
+    kursnamn: {
         type: String,
-        require: true
+        required: true
     },
-    courseProgression: {
-        type: String,
+    Kursplan: {
+        type: String
     },
-    coursePlan: {
+    progression: {
+        type: String
+    },
+    termin: {
         type: String
     }
 

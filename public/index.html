@@ -32,10 +32,11 @@
             <div id="message"></div>
             <table>
                 <thead>
-                    <th>Id</th>
-                    <th>Kurs-id</th>
+                    <th>Kurskod</th>
                     <th>Kursnamn</th>
-                    <th>Kursperiod</th>
+                    <th>Progression</th>
+                    <th>Termin</th>
+                    <th>Kursplan</th>
                     <th>Radera</th>
                 </thead>
                 <tbody id="output-courses">
@@ -53,9 +54,17 @@
             <br>
             <input type="text" name="courseName" id="course-name" />
             <br>
-            <label for="coursePeriod">Kursperiod:</label>
+            <label for="courseProgression">Kursprogression:</label>
             <br>
-            <input type="text" name="coursePeriod" id="period" />
+            <input type="text" name="courseProgression" id="progression" />
+            <br>
+            <label for="courseTermin">Termin:</label>
+            <br>
+            <input type="text" name="courseTermin" id="termin" />
+            <br>
+            <label for="coursePlan">Kursplan:</label>
+            <br>
+            <input type="text" name="coursePlan" id="course-plan" />
             <br>
             <br>
             <input type="submit" name="addbutton" id="addbutton" value="Lägg till kurs" />

@@ -42,7 +42,7 @@ function getData(courses) {
 
     courses.forEach(course => {
         if (outputcoursesEl) {
-            outputcoursesEl.innerHTML += `<tr><td>${course._id}</td><td>${course.courseId}</td><td>${course.courseName}</td><td>${course.coursePeriod}<td><button type="button" data-id="${course._id}" class="deletebtn">Radera</button></td></tr>`;
+            outputcoursesEl.innerHTML += `<tr><td>${course.kurskod}</td><td>${course.kursnamn}</td><td>${course.progression}</td><td>${course.termin}</td><td>${course.Kursplan}</td><td><button type="button" data-id="${course._id}" class="deletebtn">Radera</button></td></tr>`;
         }
     });
 
@@ -59,7 +59,9 @@ function handleFormSubmit(e) {
 
     const courseIdEl = document.getElementById("course-id").value;
     const courseNameEl = document.getElementById('course-name').value;
-    const coursePeriodEl = document.getElementById('period').value;
+    const courseProgressionEl = document.getElementById('progression').value;
+    const courseTerminEl = document.getElementById('termin').value;
+    const coursePlanEl = document.getElementById('course-plan').value;
     const messageEl = document.getElementById('message');
 
     // method for adding new data
@@ -69,9 +71,11 @@ function handleFormSubmit(e) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            courseId: courseIdEl,
-            courseName: courseNameEl,
-            coursePeriod: coursePeriodEl,
+            kurskod: courseIdEl,
+            kursnamn: courseNameEl,
+            progression: courseProgressionEl,
+            termin: courseTerminEl,
+            Kursplan: coursePlanEl,
         }),
     })
         .then(response => response.json())
@@ -95,19 +99,19 @@ function deleteCourse(event) {
 
         const messageEl = document.getElementById('message');
 
-    fetch(url + "/" + id, {
-        method: "DELETE"
-    })
-        .then(response => response.json())
-        .then(data => {
-            messageEl.innerHTML = 'Kursen har raderats!';
-            location.reload();
+        fetch(url + "/" + id, {
+            method: "DELETE"
         })
-        .catch(error => {
-            console.log(error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                messageEl.innerHTML = 'Kursen har raderats!';
+                location.reload();
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
-    }    
+    }
 }
 
 

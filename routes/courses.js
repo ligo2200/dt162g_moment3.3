@@ -1,8 +1,8 @@
 // pull in express library
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 // including model for course
-const Course = require('../models/course')
+const Course = require('../models/course');
 
 // get courses
 router.get('/', async (req, res) => {
@@ -12,22 +12,23 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message})
     }
-})
+});
 
 // get course by id
 router.get('/:id', getCourse, (req, res) => {
     res.send(res.course)
 
-})
+});
 
 // create course
 router.post('/', async (req, res) => {
     const course = new Course ({
-        courseCode: req.body.courseCode, 
-        courseName: req.body.courseName,
-        courseProgression: req.body.courseProgression, 
-        coursePlan: req.body.coursePlan
-    })
+        kurskod: req.body.courseCode, 
+        kursnamn: req.body.courseName,
+        Kursplan: req.body.courseProgression, 
+        progression: req.body.coursePlan,
+        termin: req.body.courseTermin
+    });
 
     try {
         const newCourse = await course.save()
@@ -41,16 +42,19 @@ router.post('/', async (req, res) => {
 router.patch('/:id', getCourse, async (req, res) => {
     //check if body is not empty
     if (req.body.courseCode != null) {
-        res.course.courseCode = req.body.courseCode
+        res.course.kurskod = req.body.courseCode;
     }
     if (req.body.courseName != null) {
-        res.course.courseName = req.body.courseName
+        res.course.kursnamn = req.body.courseName;
     }
     if (req.body.courseProgression != null) {
-        res.course.courseProgression = req.body.courseProgression
+        res.course.progression = req.body.courseProgression;
     }
     if (req.body.coursePlan != null) {
-        res.course.coursePlan = req.body.coursePlan
+        res.course.Kursplan = req.body.coursePlan;
+    }
+    if (req.body.courseTermin != null ) {
+        res.course.termin = req.body.courseTermin;
     }
 
     try {
@@ -60,7 +64,7 @@ router.patch('/:id', getCourse, async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 
-})
+});
 
 // deleting course
 router.delete('/:id', getCourse, async (req, res) => {
