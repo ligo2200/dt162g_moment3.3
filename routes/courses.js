@@ -22,12 +22,13 @@ router.get('/:id', getCourse, (req, res) => {
 
 // create course
 router.post('/', async (req, res) => {
+    
     const course = new Course ({
-        kurskod: req.body.courseCode, 
-        kursnamn: req.body.courseName,
-        Kursplan: req.body.courseProgression, 
-        progression: req.body.coursePlan,
-        termin: req.body.courseTermin
+        kurskod: req.body.kurskod, 
+        kursnamn: req.body.kursnamn,
+        Kursplan: req.body.Kursplan, 
+        progression: req.body.progression,
+        termin: req.body.termin
     });
 
     try {
