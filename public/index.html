@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+    Code written by Linda Götenmark, 2023,
+    ligo2200@student.miun.se
+    moment 2 - dt162g, JavaScript-baserad webbutveckling
+    Miduniversity, Sweden 
+-->
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moment 3.3
+
+    </title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Moment 3.3 - JavaScriptbaserad webbutveckling</h1>
+        <div id="displaycourses">
+            <div id="message"></div>
+            <table>
+                <thead>
+                    <th>Id</th>
+                    <th>Kurs-id</th>
+                    <th>Kursnamn</th>
+                    <th>Kursperiod</th>
+                    <th>Radera</th>
+                </thead>
+                <tbody id="output-courses">
+
+                </tbody>
+            </table>
+        </div>
+        <form id="courses-form" method="post">
+            <br>
+            <label for="courseId">Kurs-id:</label>
+            <br>
+            <input type="text" name="courseId" id="course-id" />
+            <br>
+            <label for="courseName">Kursnamn:</label>
+            <br>
+            <input type="text" name="courseName" id="course-name" />
+            <br>
+            <label for="coursePeriod">Kursperiod:</label>
+            <br>
+            <input type="text" name="coursePeriod" id="period" />
+            <br>
+            <br>
+            <input type="submit" name="addbutton" id="addbutton" value="Lägg till kurs" />
+        </form>
+
+
+    </div>
+    <script src="js/main.js" defer></script>
+
+</body>
+
+</html>
